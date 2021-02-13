@@ -3,11 +3,3 @@ node_modules
 dist
 dist-ssr
 *.local
-
-# yarn
-.yarn/*
-!.yarn/cache
-!.yarn/releases
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
