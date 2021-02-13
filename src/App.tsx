@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, DatePicker } from "antd";
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.less";
 
 const App: React.FC = () => {
   const [count, setCount] = useState(0);
