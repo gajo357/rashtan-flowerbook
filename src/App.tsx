@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button, DatePicker } from "antd";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -11,10 +12,11 @@ const App: React.FC = () => {
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
         <p>
-          <button onClick={() => setCount(count => count + 1)}>
+          <Button onClick={() => setCount(count => count + 1)}>
             count is: {count}
-          </button>
+          </Button>
         </p>
+        <DatePicker></DatePicker>
         <p>
           Edit <code>App.tsx</code> and save to test HMR updates.
         </p>
