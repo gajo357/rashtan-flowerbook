@@ -7,45 +7,66 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 15em;
+  width: 15em;
+  margin-top: 4em;
+  margin-bottom: 4em;
+  padding-top: 2em;
   pointer-events: none;
+  color: @heading-color;
+  background-color: @component-background;
   border-radius: 50%;
+  border: 5px solid @primary-color;
 }
-
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.App-logo svg {
+  height: 10em;
+  width: 10em;
+  fill: @heading-color;
 }
 
 .App-button {
-  height: 20vmin;
-  width: 25vmin;
-  font-size: calc(10px + 2vmin);
-  border-radius: 20px;
+  height: 5em;
+  width: 6em;
+  font-size: calc(10px + 1em);
+  border-radius: 15%;
 }
 
 .App-button svg {
-  height: 7vmin;
+  height: 1.5em;
+  width: 1.5em;
   fill: @body-background;
 }
 
-.App-link {
-  color: @link-color;
+.ant-layout-content {
+  margin: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.icon-logo {
+  width: 3em;
+  height: 3em;
 }
 
-button {
-  font-size: calc(10px + 2vmin);
+.icon-logo svg {
+  width: 3em;
+  height: 3em;
+  fill: @primary-color;
+}
+
+.ant-layout-header {
+  height: 6em;
+  padding: 1em;
+  color: @component-background;
+}
+
+.ant-layout-header p {
+  font-size: 2em;
+  text-align: start;
+  font-weight: bold;
+  line-height: 1.5em;
+}
+
+.ant-layout-header .anticon-menu {
+  font-size: 2.5em;
+  text-align: end;
+  font-weight: bolder;
 }
