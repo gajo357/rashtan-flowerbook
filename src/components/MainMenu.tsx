@@ -6,10 +6,11 @@ import {
   MenuOutlined,
   CopyrightOutlined,
   LogoutOutlined,
-  SettingOutlined,
+  ShopOutlined,
   BarChartOutlined,
   TeamOutlined,
-  ArrowLeftOutlined
+  ArrowLeftOutlined,
+  AppstoreAddOutlined
 } from "@ant-design/icons";
 import { useHistory, useLocation } from "react-router";
 import { Drawer, Menu } from "antd";
@@ -38,7 +39,9 @@ const MainMenu: React.FC = () => {
 
   return (
     <>
-      {isHome ? (
+      {!user?.role ? (
+        <></>
+      ) : isHome ? (
         <MenuOutlined onClick={() => setMenuOpen(v => !v)} />
       ) : (
         <ArrowLeftOutlined onClick={goTo("/")} />
@@ -54,8 +57,8 @@ const MainMenu: React.FC = () => {
             Moj profil
           </Menu.Item>
           {user?.role !== RoleDto.Worker && (
-            <>
-              <Menu.Item onClick={goTo("/settings")} icon={<SettingOutlined />}>
+            <Menu.ItemGroup key="g1" title="Moja cvećara">
+              <Menu.Item onClick={goTo("/settings")} icon={<ShopOutlined />}>
                 Podešavanja
               </Menu.Item>
               <Menu.Item
@@ -67,10 +70,18 @@ const MainMenu: React.FC = () => {
               <Menu.Item onClick={goTo("/workers")} icon={<TeamOutlined />}>
                 Radnici
               </Menu.Item>
-            </>
+            </Menu.ItemGroup>
           )}
           <Menu.Divider />
-          <Menu.Item onClick={logout} icon={<LogoutOutlined />}>
+          <Menu.Item onClick={goTo("/new-shop")} icon={<AppstoreAddOutlined />}>
+            Nova cvećara
+          </Menu.Item>
+          <Menu.Divider />
+          <Menu.Item
+            onClick={logout}
+            icon={<LogoutOutlined />}
+            style={{ marginTop: 20 }}
+          >
             ODJAVA
           </Menu.Item>
 

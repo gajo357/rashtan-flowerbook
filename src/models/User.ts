@@ -1,7 +1,7 @@
 export enum RoleDto {
-  Owner = 1,
-  Worker = 2,
-  Admin = 3
+  Worker = 1,
+  Admin = 2,
+  Owner = 3
 }
 
 export interface UserModel {
@@ -9,7 +9,7 @@ export interface UserModel {
   name: string | null;
   email: string | null;
   emailVerified: boolean;
-  role: RoleDto;
+  role?: RoleDto;
   getIdToken(forceRefresh?: boolean): Promise<string | undefined>;
   sendEmailVerification(code: string | null): Promise<void>;
 }

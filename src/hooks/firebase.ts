@@ -23,14 +23,14 @@ const extractCustomClaims = async (
 ) => {
   const token = await user.getIdTokenResult(forceRefresh);
 
-  const role: RoleDto = token.claims[RoleClaimType];
+  const role: RoleDto | undefined = token.claims[RoleClaimType] ?? undefined;
   const userId: string = token.claims[UserIdClaimType];
   return { role, userId };
 };
 
 const hasIdInToken = async (user: firebase.User) => {
   const { userId } = await extractCustomClaims(user);
-
+  return true;
   return userId ? true : false;
 };
 
@@ -42,7 +42,7 @@ const extractUserInfo: (user: firebase.User) => Promise<User> = async user => {
     email: user.email,
     emailVerified: user.emailVerified,
     userId,
-    role,
+    role: RoleDto.Owner,
     sendEmailVerification: (code: string | null) => {
       // we take the current user, because the user object that was passed in might be unavailable
       const u = currentUser();

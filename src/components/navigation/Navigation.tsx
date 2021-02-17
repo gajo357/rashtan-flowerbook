@@ -15,6 +15,8 @@ import AuthRoute from "./AuthRoute";
 import MainMenu from "../MainMenu";
 import UserProfile from "../UserProfile";
 import { TitleConsumer, TitleProvider } from "../../hooks/TitleProvider";
+import NewShop from "../NewShop";
+import AcceptInvitation from "../AcceptInvitation";
 
 const { Header, Content } = Layout;
 
@@ -54,7 +56,11 @@ const Navigation: React.FC = () => {
                   component={ForgotPassword}
                 />
 
-                <AuthRoute path="/userProfile" component={UserProfile} />
+                <Route path="/accept-invitation" component={AcceptInvitation} />
+
+                <AuthRoute path="/new-shop" component={NewShop} exact />
+                <AuthRoute path="/userProfile" component={UserProfile} exact />
+
                 <AuthRoute path="/" component={Home} />
               </Switch>
             </Content>

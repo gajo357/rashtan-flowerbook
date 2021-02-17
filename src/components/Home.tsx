@@ -4,6 +4,8 @@ import BouquetIcon from "../assets/BouquetIcon";
 import DollarsIcon from "../assets/DollarsIcon";
 import NewIcon from "../assets/NewIcon";
 import TrashIcon from "../assets/TrashIcon";
+import withRole from "../hooks/withRole";
+import { RoleDto } from "../models/User";
 import AppButton from "./AppButton";
 import Logo from "./Logo";
 
@@ -54,4 +56,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default withRole(Home, RoleDto.Worker);
