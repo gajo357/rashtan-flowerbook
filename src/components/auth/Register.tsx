@@ -1,5 +1,5 @@
-import React from "react";
-import { Button, Form, Input, PageHeader } from "antd";
+import React, { useEffect } from "react";
+import { Button, Form, Input } from "antd";
 import { useAuthContext } from "../../hooks/AuthProvider";
 import { useHistory } from "react-router";
 import { useNotificationContext } from "../../hooks/NotificationProvider";
@@ -7,12 +7,19 @@ import { RegisterDataDto } from "../../models/User";
 import LinkButton from "../LinkButton";
 import useQueryParams from "../../hooks/useQueryParams";
 import GoogleLogin from "./GoogleLogin";
+import { useTitleContext } from "../../hooks/TitleProvider";
 
 const Register: React.FC = () => {
   const { register } = useAuthContext();
   const { handleError } = useNotificationContext();
   const history = useHistory();
   const { invitationCode } = useQueryParams();
+  const { setTitle, resetTitle } = useTitleContext();
+
+  useEffect(() => {
+    setTitle("Registracija");
+    return resetTitle;
+  }, []);
 
   const registerLocal = (e: RegisterDataDto) =>
     register(e, invitationCode)
@@ -22,7 +29,7 @@ const Register: React.FC = () => {
       .catch(handleError);
 
   return (
-    <PageHeader title="Registruj se">
+    <>
       <Form onFinish={registerLocal} layout="vertical">
         <Form.Item
           name="name"
@@ -71,7 +78,7 @@ const Register: React.FC = () => {
       >
         Idi na Login
       </LinkButton>
-    </PageHeader>
+    </>
   );
 };
 

@@ -1,22 +1,29 @@
-import { Button, Form, Input, PageHeader } from "antd";
-import React from "react";
+import { Button, Form, Input } from "antd";
+import React, { useEffect } from "react";
 import { useAuthContext } from "../../hooks/AuthProvider";
+import { useTitleContext } from "../../hooks/TitleProvider";
 import LinkButton from "../LinkButton";
 
 const ForgotPassword: React.FC = () => {
   const { forgotPassword } = useAuthContext();
+  const { setTitle, resetTitle } = useTitleContext();
+
+  useEffect(() => {
+    setTitle("Zaboravljena lozinka");
+    return resetTitle;
+  }, []);
 
   const sendResetPasswordEmail = (e: { email: string }) =>
     forgotPassword(e.email)
       .then(() => {
-        alert("email is sent");
+        alert("Email is sent");
       })
       .catch((error: any) => {
         alert(error.message);
       });
 
   return (
-    <PageHeader title="Zaboravili ste lozinku?">
+    <>
       <Form onFinish={sendResetPasswordEmail} layout="vertical">
         <Form.Item
           name={"email"}
@@ -35,7 +42,7 @@ const ForgotPassword: React.FC = () => {
       <LinkButton type="link" to="/login" block>
         Idi na Login stranicu
       </LinkButton>
-    </PageHeader>
+    </>
   );
 };
 

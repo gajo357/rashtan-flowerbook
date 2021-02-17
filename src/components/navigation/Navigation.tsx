@@ -13,6 +13,8 @@ import Home from "../Home";
 import VerifyEmail from "../auth/VerifyEmail";
 import AuthRoute from "./AuthRoute";
 import MainMenu from "../MainMenu";
+import UserProfile from "../UserProfile";
+import { TitleConsumer, TitleProvider } from "../../hooks/TitleProvider";
 
 const { Header, Content } = Layout;
 
@@ -24,32 +26,42 @@ const Navigation: React.FC = () => {
   }
 
   return (
-    <Layout>
-      <Header>
-        <Row>
-          <Col flex="1">
-            <Icon component={FlowerIcon} className="icon-logo" />
-          </Col>
-          <Col flex="4">
-            <p>FlowersBook</p>
-          </Col>
-          {authenticated && (
-            <Col flex="1">
-              <MainMenu />
-            </Col>
-          )}
-        </Row>
-      </Header>
-      <Content>
-        <Switch>
-          <NonAuthRoute path="/login" component={Login} />
-          <NonAuthRoute path="/register" component={Register} />
-          <NonAuthRoute path="/forgot-password" component={ForgotPassword} />
+    <TitleProvider>
+      <TitleConsumer>
+        {({ title }) => (
+          <Layout>
+            <Header>
+              <Row>
+                <Col flex="1">
+                  <Icon component={FlowerIcon} className="icon-logo" />
+                </Col>
+                <Col flex="4">
+                  <p>{title}</p>
+                </Col>
+                {authenticated && (
+                  <Col flex="1">
+                    <MainMenu />
+                  </Col>
+                )}
+              </Row>
+            </Header>
+            <Content>
+              <Switch>
+                <NonAuthRoute path="/login" component={Login} />
+                <NonAuthRoute path="/register" component={Register} />
+                <NonAuthRoute
+                  path="/forgot-password"
+                  component={ForgotPassword}
+                />
 
-          <AuthRoute path="/" component={Home} />
-        </Switch>
-      </Content>
-    </Layout>
+                <AuthRoute path="/userProfile" component={UserProfile} />
+                <AuthRoute path="/" component={Home} />
+              </Switch>
+            </Content>
+          </Layout>
+        )}
+      </TitleConsumer>
+    </TitleProvider>
   );
 };
 

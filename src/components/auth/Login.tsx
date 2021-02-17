@@ -1,11 +1,12 @@
-import React from "react";
-import { Button, Form, Input, PageHeader } from "antd";
+import React, { useEffect } from "react";
+import { Button, Form, Input } from "antd";
 import { useAuthContext } from "../../hooks/AuthProvider";
 import { useHistory } from "react-router";
 import { useNotificationContext } from "../../hooks/NotificationProvider";
 import LinkButton from "../LinkButton";
 import useQueryParams from "../../hooks/useQueryParams";
 import GoogleLogin from "./GoogleLogin";
+import { useTitleContext } from "../../hooks/TitleProvider";
 
 interface UserPass {
   email: string;
@@ -17,6 +18,12 @@ const Login: React.FC = () => {
   const { handleError } = useNotificationContext();
   const history = useHistory();
   const { invitationCode } = useQueryParams();
+  const { setTitle, resetTitle } = useTitleContext();
+
+  useEffect(() => {
+    setTitle("Prijava");
+    return resetTitle;
+  }, []);
 
   const loginLocal = (data: UserPass) =>
     login(data.email, data.password)
@@ -26,7 +33,7 @@ const Login: React.FC = () => {
       .catch(handleError);
 
   return (
-    <PageHeader title="Login">
+    <>
       <Form onFinish={loginLocal} layout="vertical">
         <Form.Item
           name="email"
@@ -66,7 +73,7 @@ const Login: React.FC = () => {
       >
         Nemate nalog?
       </LinkButton>
-    </PageHeader>
+    </>
   );
 };
 

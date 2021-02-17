@@ -19,3 +19,8 @@ export interface RegisterDataDto {
   email: string;
   password: string;
 }
+
+export interface UserProfileDto {
+  name: string;
+  email: string;
+}
