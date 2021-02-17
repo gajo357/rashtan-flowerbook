@@ -23,34 +23,32 @@ const Navigation: React.FC = () => {
   }
 
   return (
-    <Spin tip="Prijava u toku, molimo sačekajte..." spinning={loadingAuthState}>
-      <Layout>
-        <Header>
-          <Row>
+    <Layout>
+      <Header>
+        <Row>
+          <Col flex="1">
+            <Icon component={FlowerIcon} className="icon-logo" />
+          </Col>
+          <Col flex="4">
+            <p>FlowersBook</p>
+          </Col>
+          {authenticated && (
             <Col flex="1">
-              <Icon component={FlowerIcon} className="icon-logo" />
+              <MenuOutlined />
             </Col>
-            <Col flex="4">
-              <p>FlowersBook</p>
-            </Col>
-            {authenticated && (
-              <Col flex="1">
-                <MenuOutlined />
-              </Col>
-            )}
-          </Row>
-        </Header>
-        <Content>
-          <Switch>
-            <NonAuthRoute path="/login" component={Login} />
-            <NonAuthRoute path="/register" component={Register} />
-            <NonAuthRoute path="/forgot-password" component={ForgotPassword} />
+          )}
+        </Row>
+      </Header>
+      <Content>
+        <Switch>
+          <NonAuthRoute path="/login" component={Login} />
+          <NonAuthRoute path="/register" component={Register} />
+          <NonAuthRoute path="/forgot-password" component={ForgotPassword} />
 
-            <AuthRoute path="/" component={Home} />
-          </Switch>
-        </Content>
-      </Layout>
-    </Spin>
+          <AuthRoute path="/" component={Home} />
+        </Switch>
+      </Content>
+    </Layout>
   );
 };
 

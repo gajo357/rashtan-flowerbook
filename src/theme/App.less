@@ -2,8 +2,16 @@
 @import "antd/dist/antd.less";
 @import "./theme.less";
 
-.App {
+#root {
+  margin: auto;
   text-align: center;
+  max-width: 375px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid @primary-color;
+}
+
+.App {
 }
 
 .App-logo {
@@ -37,10 +45,6 @@
   fill: @body-background;
 }
 
-.ant-layout-content {
-  margin: auto;
-}
-
 .icon-logo {
   width: 3em;
   height: 3em;
@@ -49,7 +53,7 @@
 .icon-logo svg {
   width: 3em;
   height: 3em;
-  fill: @primary-color;
+  fill: @border-color-base;
 }
 
 .ant-layout-header {

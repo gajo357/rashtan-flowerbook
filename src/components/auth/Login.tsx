@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, Form, Input, PageHeader } from "antd";
 import { useAuthContext } from "../../hooks/AuthProvider";
-import MiddleBox from "../MiddleBox";
 import { useHistory } from "react-router";
 import { useNotificationContext } from "../../hooks/NotificationProvider";
 import LinkButton from "../LinkButton";
@@ -28,47 +27,45 @@ const Login: React.FC = () => {
 
   return (
     <PageHeader title="Login">
-      <MiddleBox>
-        <Form onFinish={loginLocal}>
-          <Form.Item
-            name="email"
-            label="Email"
-            rules={[{ type: "email", required: true }]}
-          >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            name="password"
-            label="Lozinka"
-            rules={[
-              {
-                required: true
-              }
-            ]}
-          >
-            <Input placeholder="Molimo unesite lozinku" type="password" />
-          </Form.Item>
-
-          <Form.Item>
-            <Button type="primary" htmlType="submit" block>
-              Login
-            </Button>
-          </Form.Item>
-        </Form>
-        <GoogleLogin />
-        <LinkButton to="forgot-password" type="link" block>
-          Zaboravili ste lozinku?
-        </LinkButton>
-
-        <LinkButton
-          to={invitationCode ? `register?code=${invitationCode}` : "register"}
-          type="link"
-          block
+      <Form onFinish={loginLocal} layout="vertical">
+        <Form.Item
+          name="email"
+          label="Email"
+          rules={[{ type: "email", required: true }]}
         >
-          Nemate nalog?
-        </LinkButton>
-      </MiddleBox>
+          <Input placeholder="Molimo unsesite adresu e-pošte" type="email" />
+        </Form.Item>
+
+        <Form.Item
+          name="password"
+          label="Lozinka"
+          rules={[
+            {
+              required: true
+            }
+          ]}
+        >
+          <Input placeholder="Molimo unesite lozinku" type="password" />
+        </Form.Item>
+
+        <Form.Item>
+          <Button type="primary" htmlType="submit" block>
+            Login
+          </Button>
+        </Form.Item>
+      </Form>
+      <GoogleLogin />
+      <LinkButton to="forgot-password" type="link" block>
+        Zaboravili ste lozinku?
+      </LinkButton>
+
+      <LinkButton
+        to={invitationCode ? `register?code=${invitationCode}` : "register"}
+        type="link"
+        block
+      >
+        Nemate nalog?
+      </LinkButton>
     </PageHeader>
   );
 };
