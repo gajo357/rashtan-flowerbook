@@ -12,6 +12,7 @@ import FlowerIcon from "../../assets/FlowerIcon";
 import Home from "../Home";
 import VerifyEmail from "../auth/VerifyEmail";
 import AuthRoute from "./AuthRoute";
+import MainMenu from "../MainMenu";
 
 const { Header, Content } = Layout;
 
@@ -34,7 +35,7 @@ const Navigation: React.FC = () => {
           </Col>
           {authenticated && (
             <Col flex="1">
-              <MenuOutlined />
+              <MainMenu />
             </Col>
           )}
         </Row>

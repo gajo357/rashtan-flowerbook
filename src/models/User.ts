@@ -1,6 +1,6 @@
 export enum RoleDto {
   Owner = 1,
-  Technician = 2,
+  Worker = 2,
   Admin = 3
 }
 
