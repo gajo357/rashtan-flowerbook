@@ -1,6 +1,9 @@
 {
   "name": "rashtan-flowerbook",
   "version": "0.0.0",
+  "author": "Gavrilo Mumović",
+  "license": "MIT",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

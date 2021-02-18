@@ -11,5 +11,8 @@ export default defineConfig({
         javascriptEnabled: true
       }
     }
+  },
+  build: {
+    outDir: "build"
   }
 });
