@@ -1,0 +1,11 @@
+{
+  "routes": [
+    { "route": "/login" },
+    { "route": "/register" },
+    { "route": "/forgot-password" },
+    { "route": "/accept-invitation/*" },
+    { "route": "/new-shop" },
+    { "route": "/userProfile" },
+    { "route": "/*" }
+  ]
+}
