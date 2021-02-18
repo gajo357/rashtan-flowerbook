@@ -1,6 +1,6 @@
 {
   "routes": [
-    { "route": "/login" },
+    { "route": "/login", "serve": "/" },
     { "route": "/register" },
     { "route": "/forgot-password" },
     { "route": "/accept-invitation/*" },
