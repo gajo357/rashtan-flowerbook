@@ -1,11 +1,11 @@
 {
   "routes": [
     { "route": "/login", "serve": "/" },
-    { "route": "/register" },
-    { "route": "/forgot-password" },
-    { "route": "/accept-invitation/*" },
-    { "route": "/new-shop" },
-    { "route": "/userProfile" },
+    { "route": "/register", "serve": "/" },
+    { "route": "/forgot-password", "serve": "/" },
+    { "route": "/accept-invitation/*", "serve": "/" },
+    { "route": "/new-shop", "serve": "/" },
+    { "route": "/userProfile", "serve": "/" },
     { "route": "/*" }
   ]
 }
