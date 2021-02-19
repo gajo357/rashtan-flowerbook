@@ -1,11 +1,3 @@
 {
-  "routes": [
-    { "route": "/login", "serve": "/" },
-    { "route": "/register", "serve": "/" },
-    { "route": "/forgot-password", "serve": "/" },
-    { "route": "/accept-invitation/*", "serve": "/" },
-    { "route": "/new-shop", "serve": "/" },
-    { "route": "/userProfile", "serve": "/" },
-    { "route": "/*" }
-  ]
+  "routes": [{ "route": "/*", "serve": "/" }]
 }
