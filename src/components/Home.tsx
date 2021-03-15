@@ -1,5 +1,6 @@
 import { Col, Row } from "antd";
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import BouquetIcon from "../assets/BouquetIcon";
 import DollarsIcon from "../assets/DollarsIcon";
 import NewIcon from "../assets/NewIcon";
@@ -11,6 +12,7 @@ import Logo from "./Logo";
 
 const Home: React.FC = () => {
   const [, setCount] = useState(0);
+  const history = useHistory();
 
   return (
     <>
@@ -19,7 +21,7 @@ const Home: React.FC = () => {
       <Row gutter={16}>
         <Col flex={1}>
           <AppButton
-            onClick={() => setCount(count => count + 1)}
+            onClick={() => history.replace("/day-sold")}
             icon={BouquetIcon}
           >
             Prodato

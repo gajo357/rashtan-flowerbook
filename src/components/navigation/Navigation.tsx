@@ -17,6 +17,7 @@ import UserProfile from "../UserProfile";
 import { TitleConsumer, TitleProvider } from "../../hooks/TitleProvider";
 import NewShop from "../NewShop";
 import AcceptInvitation from "../AcceptInvitation";
+import DaySold from "../DaySold";
 
 const { Header, Content } = Layout;
 
@@ -60,6 +61,7 @@ const Navigation: React.FC = () => {
 
                 <AuthRoute path="/new-shop" component={NewShop} exact />
                 <AuthRoute path="/userProfile" component={UserProfile} exact />
+                <AuthRoute path="/day-sold" component={DaySold} exact />
 
                 <AuthRoute path="/" component={Home} />
               </Switch>

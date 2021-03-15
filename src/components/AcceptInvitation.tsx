@@ -63,6 +63,7 @@ const AcceptInvitation: React.FC = () => {
       <Form
         onFinish={acceptInvitation}
         initialValues={{ code: invitationCode ? invitationCode : "" }}
+        layout="vertical"
       >
         <Form.Item
           name="code"

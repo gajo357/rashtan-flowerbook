@@ -21,9 +21,7 @@ const VerifyEmail: React.FC = () => {
     <>
       <h3>
         Morate potvrditi adresu Vaše e-pošte {user?.email}. Molimo proverite
-        Vašu e-poštu i pritisnite dugme za potvrdu! Морате потврдити адресу Ваше
-        е-поште {{ user }}. Молимо преверите вашу е-пошту и притисните дугме за
-        потврду!
+        Vašu e-poštu i pritisnite dugme za potvrdu!
       </h3>
       <Button
         block

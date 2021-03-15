@@ -7,14 +7,14 @@ interface DateMethods {
 }
 
 const toDateString = (input: string) =>
-  new Date(input).toLocaleDateString("en-GB", {
+  new Date(input).toLocaleDateString("de-DE", {
     month: "2-digit",
     day: "2-digit",
     year: "numeric"
   });
 
 const toDateTimeString = (input: string) =>
-  new Date(input).toLocaleString("en-GB", {
+  new Date(input).toLocaleString("de-DE", {
     month: "2-digit",
     day: "2-digit",
     year: "numeric",
@@ -23,7 +23,7 @@ const toDateTimeString = (input: string) =>
   });
 
 const toTimeString = (input: string) =>
-  new Date(input).toLocaleString("en-GB", {
+  new Date(input).toLocaleString("de-DE", {
     hour: "2-digit",
     minute: "2-digit"
   });

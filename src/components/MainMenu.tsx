@@ -51,6 +51,7 @@ const MainMenu: React.FC = () => {
         placement="right"
         onClose={() => setMenuOpen(false)}
         visible={menuOpen}
+        getContainer={false}
       >
         <Menu selectable={false} mode="vertical">
           <Menu.Item onClick={goTo("/userProfile")} icon={<UserOutlined />}>
