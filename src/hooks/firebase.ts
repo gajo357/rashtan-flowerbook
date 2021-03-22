@@ -14,8 +14,9 @@ const signInWithGoogle = () =>
 
 const currentUser = () => firebaseAuth().currentUser;
 
-const RoleClaimType = "https://rashtan-flowebook.com/role";
-const UserIdClaimType = "https://rashtan-flowebook.com/user";
+const RoleClaimType = "rashtan-flowersbook/role";
+const ShopIdClaimType = "rashtan-flowersbook/shop";
+const UserIdClaimType = "rashtan-flowersbook/user";
 
 const extractCustomClaims = async (
   user: firebase.User,
@@ -25,7 +26,8 @@ const extractCustomClaims = async (
 
   const role: RoleDto | undefined = token.claims[RoleClaimType] ?? undefined;
   const userId: string = token.claims[UserIdClaimType];
-  return { role, userId };
+  const shopId: string = token.claims[ShopIdClaimType];
+  return { role, userId, shopId };
 };
 
 const hasIdInToken = async (user: firebase.User) => {
@@ -36,13 +38,14 @@ const hasIdInToken = async (user: firebase.User) => {
 
 const extractUserInfo: (user: firebase.User) => Promise<User> = async user => {
   // force refresh the token to get the latest user info
-  const { role, userId } = await extractCustomClaims(user, true);
+  const { role, userId, shopId } = await extractCustomClaims(user, true);
   return {
     name: user.displayName,
     email: user.email,
     emailVerified: user.emailVerified,
     userId,
     role: RoleDto.Owner,
+    shopId,
     sendEmailVerification: (code: string | null) => {
       // we take the current user, because the user object that was passed in might be unavailable
       const u = currentUser();

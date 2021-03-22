@@ -1,5 +1,5 @@
-import { Col, Layout, Row, Spin } from "antd";
-import Icon, { MenuOutlined } from "@ant-design/icons";
+import { Col, Layout, Row } from "antd";
+import Icon from "@ant-design/icons";
 import React from "react";
 import { Route } from "react-router";
 import { Switch } from "react-router-dom";
@@ -22,7 +22,7 @@ import DaySold from "../DaySold";
 const { Header, Content } = Layout;
 
 const Navigation: React.FC = () => {
-  const { authenticated, loadingAuthState, user, logout } = useAuthContext();
+  const { authenticated, loadingAuthState, user } = useAuthContext();
 
   if (!loadingAuthState && user && !user.emailVerified) {
     return <VerifyEmail />;
