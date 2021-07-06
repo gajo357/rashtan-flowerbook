@@ -25,7 +25,7 @@
     "@types/react-router-dom": "^5.1.7",
     "@vitejs/plugin-react-refresh": "^1.1.0",
     "typescript": "^4.1.2",
-    "vite": "^2.0.0-beta.69",
+    "vite": "^2.4.0",
     "vite-plugin-react-svg": "^0.2.0"
   }
 }
